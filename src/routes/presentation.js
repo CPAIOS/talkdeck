@@ -139,7 +139,8 @@ router.post('/choice', verifyToken, async (req, res) => {
             result: result
         });
     } catch (error) {
-        console.error('Error handling user choice:', error);\n        res.status(500).json({ error: 'Failed to process choice' });
+        console.error('Error handling user choice:', error);
+        res.status(500).json({ error: 'Failed to process choice' });
     }
 });
 
