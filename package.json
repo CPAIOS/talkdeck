@@ -1,0 +1,43 @@
+{
+  "name": "talkdeck",
+  "version": "1.0.0",
+  "description": "Interactive pitch presentations with AI-powered Q&A and NDA protection",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "setup-demo": "node src/utils/setupDemo.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pitch",
+    "presentation",
+    "AI",
+    "NDA",
+    "interactive",
+    "startup"
+  ],
+  "author": "TalkDeck Team",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.1",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "multer": "^2.0.1",
+    "nodemailer": "^7.0.4",
+    "openai": "^4.104.0",
+    "sqlite3": "^5.1.7",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

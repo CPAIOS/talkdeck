@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TalkDeck - Interactive Pitch Presentations</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="app">
+        <!-- Landing Page -->
+        <div id="landing-page" class="page active">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>Gabriel Greenstein</h1>
+                    <p class="tagline">Revolutionary Platform Portfolio</p>
+                    <p class="description">
+                        Interactive investor presentation showcasing 7 world-changing platforms 
+                        with $1.5+ trillion market opportunity.
+                    </p>
+                    <button id="get-started-btn" class="primary-button">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+            
+            <div class="features-section">
+                <div class="container">
+                    <h2>Platform Portfolio Overview</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🎮</div>
+                            <h3>Entertainment Revolution</h3>
+                            <p>Blank Wars, Block Loader, AdventureBlocks - $850B+ market</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🧠</div>
+                            <h3>AI Training Ecosystem</h3>
+                            <p>Agent Academy, CBBT, TurnkeyTeacher - $200B+ market</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📚</div>
+                            <h3>Interactive Education</h3>
+                            <p>ClassixWorx transforming literature - $350B+ market</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🛠️</div>
+                            <h3>Developer Tools Suite</h3>
+                            <p>PrivateAEye, Project Chief, Prompt Parser - $100B+ market</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NDA Page -->
+        <div id="nda-page" class="page">
+            <div class="nda-container">
+                <div class="nda-header">
+                    <h1 id="nda-title">Confidentiality Agreement</h1>
+                    <p id="nda-subtitle">Please review and sign the NDA to access this presentation</p>
+                </div>
+                
+                <div class="nda-content">
+                    <div class="nda-text" id="nda-text">
+                        <!-- NDA text will be loaded here -->
+                    </div>
+                    
+                    <div class="signature-section">
+                        <div class="form-group">
+                            <label for="signer-name">Full Name *</label>
+                            <input type="text" id="signer-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="signer-email">Email Address *</label>
+                            <input type="email" id="signer-email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="signature-pad">Digital Signature *</label>
+                            <canvas id="signature-pad" width="400" height="150" style="border: 2px solid #e0e0e0; border-radius: 6px; background-color: white; display: block; width: 100%; max-width: 400px;"></canvas>
+                            <button id="clear-signature" class="secondary-button">Clear</button>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="agree-checkbox" required>
+                                I agree to the terms of this Non-Disclosure Agreement
+                            </label>
+                        </div>
+                        
+                        <button id="sign-nda-btn" class="primary-button" disabled>
+                            Sign NDA & Continue
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Presentation Page -->
+        <div id="presentation-page" class="page">
+            <div class="presentation-container">
+                <!-- Presentation Header -->
+                <div class="presentation-header">
+                    <div class="deck-info">
+                        <h1 id="deck-title">Gabriel Greenstein - Revolutionary Platform Portfolio</h1>
+                        <div class="presentation-controls">
+                            <button id="slideshow-mode" class="control-btn" title="Toggle Slideshow Mode">
+                                <span class="icon">⏯️</span>
+                            </button>
+                            <button id="voice-mode" class="control-btn" title="Toggle Voice Mode">
+                                <span class="icon">🎤</span>
+                            </button>
+                            <button id="export-session" class="control-btn" title="Export Session">
+                                <span class="icon">📊</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Slide Container -->
+                <div class="slide-container" id="slide-container">
+                    <!-- Slide Visual Area -->
+                    <div class="slide-visual" id="slide-visual">
+                        <div class="visual-content" id="visual-content">
+                            <!-- Dynamic visuals (images, videos, charts) -->
+                        </div>
+                    </div>
+                    
+                    <!-- Slide Content Area -->
+                    <div class="slide-content" id="slide-content">
+                        <div class="slide-title" id="slide-title">
+                            <!-- Slide title appears here -->
+                        </div>
+                        <div class="slide-text" id="slide-text">
+                            <!-- Slide content text appears here -->
+                        </div>
+                        <div class="slide-speaker" id="slide-speaker">
+                            <!-- Speaker attribution -->
+                        </div>
+                    </div>
+                    
+                    <!-- Interactive Elements Overlay -->
+                    <div class="interactive-overlay" id="interactive-overlay">
+                        <!-- Choice buttons, input prompts, etc. -->
+                    </div>
+                </div>
+
+                <!-- Sidebar for Input and Navigation -->
+                <div class="presentation-sidebar" id="presentation-sidebar">
+                    <!-- Navigation Progress -->
+                    <div class="progress-section">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        <div class="slide-counter">
+                            <span id="current-slide">1</span> / <span id="total-slides">10</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Mini TOC -->
+                    <div class="mini-toc" id="mini-toc">
+                        <h4>Presentation Overview</h4>
+                        <ul class="toc-list" id="toc-list">
+                            <!-- TOC items populated by JavaScript -->
+                        </ul>
+                    </div>
+                    
+                    <!-- Voice/Text Input Section -->
+                    <div class="input-section" id="input-section">
+                        <div class="input-header">
+                            <h4>Ask Falcon Miller</h4>
+                            <div class="input-mode-toggle">
+                                <button class="mode-btn active" data-mode="text">💬</button>
+                                <button class="mode-btn" data-mode="voice">🎤</button>
+                            </div>
+                        </div>
+                        
+                        <div class="text-input-container" id="text-input-container">
+                            <textarea id="message-input" placeholder="Ask any question about our platforms, strategy, or technology..." rows="3"></textarea>
+                            <button id="send-message" class="send-btn">Send</button>
+                        </div>
+                        
+                        <div class="voice-input-container" id="voice-input-container" style="display: none;">
+                            <button id="voice-record" class="voice-btn">
+                                <span class="voice-icon">🎤</span>
+                                <span class="voice-text">Click to speak</span>
+                            </button>
+                            <div class="voice-status" id="voice-status"></div>
+                            <div class="voice-controls">
+                                <button id="voice-settings" class="voice-control-btn" title="Voice Settings">
+                                    ⚙️
+                                </button>
+                                <button id="voice-help" class="voice-control-btn" title="Voice Commands">
+                                    ❓
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Controls -->
+                    <div class="navigation-controls">
+                        <button id="prev-slide" class="nav-btn" disabled>
+                            ← Previous
+                        </button>
+                        <button id="next-slide" class="nav-btn">
+                            Next →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/signature-pad.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
